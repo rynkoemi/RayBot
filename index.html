@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RayBot</title>
+  <style>
+    body {
+      background: #f1f5f9;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    #chatbox {
+      width: 100%;
+      max-width: 600px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #334155;
+      margin-bottom: 20px;
+    }
+
+    #chatlog {
+      max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+    }
+
+    .message {
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 8px;
+      max-width: 80%;
+    }
+
+    .user {
+      background: #3b82f6;
+      color: white;
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .bot {
+      background: #e2e8f0;
+      color: #1e293b;
+      margin-right: auto;
+      text-align: left;
+    }
+
+    #userInput {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div id="chatbox">
+    <h2>🤖 RayBot</h2>
+    <div id="chatlog"></div>
+    <input type="text" id="userInput" placeholder="Ketik pesan..." onkeydown="if(event.key==='Enter'){sendMessage()}">
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const message = input.value.trim();
+      if (!message) return;
+
+      appendMessage("user", message);
+      input.value = "";
+
+      fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: message })
+      })
+      .then(res => res.json())
+      .then(data => {
+        appendMessage("bot", data.response);
+      });
+    }
+
+    function appendMessage(sender, text) {
+      const chatlog = document.getElementById("chatlog");
+      const msgDiv = document.createElement("div");
+      msgDiv.className = `message ${sender}`;
+      msgDiv.textContent = text;
+      chatlog.appendChild(msgDiv);
+      chatlog.scrollTop = chatlog.scrollHeight;
+    }
+  </script>
+</body>
+</html>
