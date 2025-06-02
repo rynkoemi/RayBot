@@ -48,3 +48,37 @@ Proyek ini melibatkan:
 
 ```bash
 pip install flask transformers torch
+```
+
+2. **Tulis kode di main.py dan index.html**
+
+3. **Jalankan aplikasi**
+
+```bash
+python app.py
+```
+
+4. Buka browser ke:
+
+```bash
+http://127.0.0.1:5000
+```
+---
+
+📂 Struktur Repositori
+
+```bash
+raybot-offline/
+├── templates/
+│   └── index.html              # Tampilan frontend chatbot
+├── app.py                     # Backend Flask + integrasi model BlenderBot
+├── README.md                  # Dokumentasi ini
+└── requirements.txt (opsional)
+```
+---
+
+🛡️ Lisensi
+Proyek ini dilisensikan di bawah MIT License. Anda bebas menggunakan, memodifikasi, dan membagikan proyek ini dengan atribusi yang sesuai.
+
+---
+
