@@ -20,7 +20,7 @@ Proyek ini melibatkan:
 - 🎯 **Penerapan Model AI Lokal:** Memanfaatkan model BlenderBot agar chatbot bisa berjalan offline, tanpa ketergantungan pada API pihak ketiga.
 - 🧰 **Pengembangan Frontend & Backend:** Flask digunakan untuk backend, dan HTML/CSS modern untuk frontend.
 - 🌐 **Integrasi Chatbot Web:** Chatbot dapat diakses melalui browser dengan percakapan real-time menggunakan AJAX.
-- 🖼️ **Tampilan Estetis:** UI ringan dan ramah pengguna, dapat disesuaikan sesuai kebutuhan branding (misalnya untuk RayBot).
+- 🖼️ **Tampilan Estetis:** UI ringan dan ramah pengguna, dapat disesuaikan sesuai kebutuhan branding.
 
 ---
 
